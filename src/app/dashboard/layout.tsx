@@ -13,7 +13,7 @@ import { ModeToggle } from "~/components/theme-toggler";
 
 export const metadata: Metadata = {
     title: "NEJME CHAMAL",
-    icons: [{ rel: "icon", url: "/nejmIcon.png" }],
+    icons: [{ rel: "icon", url: "/3.jpeg" }],
 };
 
 export default function DashboardLayout({
