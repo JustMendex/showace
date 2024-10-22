@@ -8,7 +8,7 @@ export default async function Home() {
   return (
     <HydrateClient>
 
-      <div className="w-full lg:grid lg:grid-cols-2 xl:min-h-screen">
+      <div className="w-full flex flex-col gap-4 lg:grid lg:grid-cols-2 xl:min-h-screen">
         <div className="flex flex-col gap-10 items-center justify-center py-12">
           <Image src="/logo.jpeg" alt="Logo" width={300} height={200} className="w-auto h-auto" />
           <LoginCard />

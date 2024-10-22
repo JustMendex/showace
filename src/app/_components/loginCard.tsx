@@ -13,7 +13,7 @@ export const LoginCard = () => {
         router.push("/dashboard");
     }
     return (
-        <Card className="mx-auto grid w-[600px] gap-6">
+        <Card className="mx-auto grid w-auto md:w-[600px] gap-6">
             <CardHeader>
                 <div className="grid gap-2 text-center">
                     <h1 className="text-3xl font-bold">Login to your account</h1>
