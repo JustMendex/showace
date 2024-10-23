@@ -31,6 +31,7 @@ import {
   SidebarRail,
 } from "~/components/ui/sidebar"
 import Image from "next/image"
+import { usePathname } from "next/navigation"
 
 // This is sample data.
 const data = {
@@ -63,11 +64,11 @@ const data = {
       items: [
         {
           title: "Suivi des Expéditions",
-          url: "#",
+          url: "/dashboard/suivi",
         },
         {
           title: "Expéditions",
-          url: "#",
+          url: "/dashboard/expedition",
         },
         {
           title: "Suivi des Ramassage",
@@ -133,22 +134,6 @@ const data = {
       url: "#",
       icon: Boxes,
       items: [
-        {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
       ],
     },
     {
@@ -216,6 +201,17 @@ const data = {
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const pathname = usePathname()
+  // check which object is active and set it to true
+  data.navMain.forEach((item) => {
+    if (item.items) {
+      item.items.forEach((subItem) => {
+        if (subItem.url === pathname) {
+          item.isActive = true
+        }
+      })
+    }
+  })
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>

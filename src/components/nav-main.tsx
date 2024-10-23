@@ -1,6 +1,7 @@
 "use client"
 
 import { ChevronRight, type LucideIcon } from "lucide-react"
+import { usePathname } from "next/navigation"
 
 import {
   Collapsible,
@@ -32,6 +33,10 @@ export function NavMain({
     }[]
   }[]
 }) {
+
+  const pathname = usePathname();
+  console.log(pathname);
+
   return (
     <SidebarGroup>
       <SidebarGroupLabel>Dashboard</SidebarGroupLabel>
@@ -45,7 +50,7 @@ export function NavMain({
           >
             <SidebarMenuItem>
               <CollapsibleTrigger asChild>
-                <SidebarMenuButton tooltip={item.title} className={`hover:bg-primary/30  group-data-[state=open]/collapsible:bg-primary/30`}>
+                <SidebarMenuButton tooltip={item.title} className={``}>
                   {item.icon && <item.icon />}
                   <span>{item.title}</span>
                   <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
@@ -55,7 +60,7 @@ export function NavMain({
                 <SidebarMenuSub>
                   {item.items?.map((subItem) => (
                     <SidebarMenuSubItem key={subItem.title}>
-                      <SidebarMenuSubButton asChild>
+                      <SidebarMenuSubButton className={`${subItem.url === pathname ? "bg-primary/30" : ""} hover:bg-primary/30 `} asChild>
                         <a href={subItem.url}>
                           <span>{subItem.title}</span>
                         </a>
